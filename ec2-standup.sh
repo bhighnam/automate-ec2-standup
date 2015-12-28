@@ -13,6 +13,8 @@ SECURITY_GROUPS="sg-f09a6a96"
 AZ="us-east-1a"
 SUBNET_ID="subnet-921fc1b9"
 
+INSTANCE_ID=""
+
 # kicking off the automated-stand up job for ec2-instance
 
 echo "*************** STANDING UP EC2 INSTANCE ****************************"
@@ -23,10 +25,14 @@ echo "*************** STANDING UP EC2 INSTANCE ****************************"
 	--instance-type "$INSTANCE_TYPE" \
 	--subnet-id "$SUBNET_ID" \
 	--count "1" \
+	--user-data "file:////home/brian/sandbox/automate-ec2-standup/bootstrap.sh" \
 	--instance-initiated-shutdown-behavior "terminate" \
 	--block-device-mapping "file:////home/brian/sandbox/automate-ec2-standup/ebsMapping.json" > output.txt
 
 echo "*************** END OF STANDING UP EC2 INSTANCE ****************************"
 
+INSTANCE_ID=$(cat output.txt | jq -r '.Instances[].InstanceId')
+
+echo "The instance that was spun up was ${INSTANCE_ID}"
 
 

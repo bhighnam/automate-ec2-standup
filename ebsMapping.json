@@ -3,7 +3,7 @@
    		 "DeviceName": "/dev/sdc",
     		  "Ebs": {
       		  	    "VolumeSize": 10,
-      		  	    "DeleteOnTermination": false,
+      		  	    "DeleteOnTermination": true,
 			    "VolumeType": "gp2"
     			  }
   	}
