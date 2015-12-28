@@ -1,0 +1,11 @@
+[
+	{
+   		 "DeviceName": "/dev/sdc",
+    		  "Ebs": {
+      		  	    "VolumeSize": 10,
+      		  	    "DeleteOnTermination": false,
+			    "VolumeType": "gp2"
+    			  }
+  	}
+]
+
