@@ -1,0 +1,6 @@
+[
+	{
+		"Arn": "arn:aws:iam::105854983481:role/awicli",
+		"Name": "ec2-admin-access"
+	}
+]

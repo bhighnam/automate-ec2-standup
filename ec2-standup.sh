@@ -21,6 +21,7 @@ INSTANCE_ID=""
 # using the following bootstrap scripts:
 	# bootstrap_apache.sh
 	# boostrap.sh
+	# bootstrap_puppet.sh
 echo "*************** STANDING UP EC2 INSTANCE ****************************"
 
  aws ec2 run-instances --image-id "$AMI" \
@@ -29,8 +30,9 @@ echo "*************** STANDING UP EC2 INSTANCE ****************************"
 	--instance-type "$INSTANCE_TYPE" \
 	--subnet-id "$SUBNET_ID" \
 	--count "1" \
-	--user-data "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/bootstrap_apache.sh" \
+	--user-data "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/bootstrap_puppet.sh" \
 	--instance-initiated-shutdown-behavior "terminate" \
+	--iam-instance-profile "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/iamRole.json" \
 	--block-device-mapping "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/ebsMapping.json" > output.txt
 
 echo "*************** END OF STANDING UP EC2 INSTANCE ****************************"
