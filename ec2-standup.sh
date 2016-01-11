@@ -32,7 +32,7 @@ echo "*************** STANDING UP EC2 INSTANCE ****************************"
 	--count "1" \
 	--user-data "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/bootstrap_puppet.sh" \
 	--instance-initiated-shutdown-behavior "terminate" \
-	--iam-instance-profile "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/iamRole.json" \
+	--iam-instance-profile Arn="arn:aws:iam::105854983481:instance-profile/awicli" \
 	--block-device-mapping "file:////Users/brianhighnam/Documents/sandbox/automate-ec2-standup/ebsMapping.json" > output.txt
 
 echo "*************** END OF STANDING UP EC2 INSTANCE ****************************"
